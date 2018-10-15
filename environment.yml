@@ -1,0 +1,9 @@
+name: quilt-open-images-dev
+
+dependencies:
+  - python=3.6
+  - pandas
+  - requests
+  - jupyter
+  - pip:
+    - tqdm
