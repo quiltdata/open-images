@@ -1,6 +1,6 @@
 # open images
 
-[splash image]
+![](./imgs/splash.png)
 
 ## About 
 

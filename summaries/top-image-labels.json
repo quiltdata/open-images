@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v4.json",
+  "width": 960,
+  "height": 500,
+
+  "data": [
+    {
+      "name": "table",
+      "url": "../data/summaries/top-image-labels.csv",
+      "format": {"type": "csv", "parse": "auto"}
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "xscale",
+      "type": "band",
+      "domain": {"data": "table", "field": "label_name"},
+      "range": "width",
+      "padding": 0.05,
+      "round": true
+    },
+    {
+      "name": "yscale",
+      "domain": {"data": "table", "field": "label_count"},
+      "nice": true,
+      "range": "height"
+    }
+  ],
+
+  "axes": [
+    { "orient": "bottom", "scale": "xscale", "labelAngle": 30, "labelAlign": "left" },
+    { "orient": "left", "scale": "yscale" }
+  ],
+
+  "marks": [
+    {
+      "type": "rect",
+      "from": {"data": "table"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "xscale", "field": "label_name"},
+          "width": {"scale": "xscale", "band": 1},
+          "y": {"scale": "yscale", "field": "label_count"},
+          "y2": {"scale": "yscale", "value": 0}
+        },
+        "update": {
+          "fill": {"value": "steelblue"}
+        },
+        "hover": {
+          "fill": {"value": "red"}
+        }
+      }
+    }
+  ],
+
+  "title": {"text": "Most Common Image Labels (n=20)"}
+}
