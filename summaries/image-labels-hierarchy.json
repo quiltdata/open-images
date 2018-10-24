@@ -26,7 +26,7 @@
       "bind": {"input": "radio", "options": ["tidy", "cluster"]}
     },
     {
-      "name": "links", "value": "line",
+      "name": "links", "value": "orthogonal",
       "bind": {
         "input": "select",
         "options": ["line", "curve", "diagonal", "orthogonal"]
