@@ -10,7 +10,7 @@ The Open Images Dataset is an attractive target for building image recognition a
 
 The images are of highly variable quality, as would be realistic in an applied machine learning setting. All or most come from Flickr. Here is an example image from this dataset, taken completely at random:
 
-![](./data/challenge2018/6539bc9ee0a6e4a4.jpg)
+![](data/images/6539bc9ee0a6e4a4.jpg)
 
 To learn more about the Open Images Dataset check out their [homepage](https://storage.googleapis.com/openimages/web/index.html).
 

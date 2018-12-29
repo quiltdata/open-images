@@ -7,3 +7,6 @@ dependencies:
   - jupyter
   - pip:
     - tqdm
+    - ratelim
+    - checkpoints
+    - t4
