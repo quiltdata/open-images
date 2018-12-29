@@ -13,7 +13,7 @@ checkpoints.enable()
 
 # TODO: refactor downloads to use a data package you define
 def download(categories, packagename, registry,
-             class_names_fp=None, train_boxed_fp=None, image_ids_fp=None, prior_results=None):
+             class_names_fp=None, train_boxed_fp=None, image_ids_fp=None):
     """Download images in categories from flickr"""
 
     # Download or load the class names pandas DataFrame
