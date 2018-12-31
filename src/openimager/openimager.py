@@ -44,8 +44,8 @@ def download(categories, packagename, registry,
                                     .pipe(lambda df: df.assign(LabelValue=df.LabelName.map(lambda v: label_map[v]))))
     remaining_todo = len(relevant_flickr_urls) if checkpoints.results is None else\
         len(relevant_flickr_urls) - len(checkpoints.results)
-    print(f"Parsing {remaining_todo} images (of which "
-          f"{len(relevant_flickr_urls) - remaining_todo} have already been downloaded)")
+    print(f"Parsing {remaining_todo} images "
+          f"({len(relevant_flickr_urls) - remaining_todo} have already been downloaded)")
 
     # Download the images
     with tqdm(total=remaining_todo) as progress_bar:
