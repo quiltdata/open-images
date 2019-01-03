@@ -1,9 +1,11 @@
 """Helper library for downloading open images categorically."""
-import t4
+import sys
+import os
+
+# import t4
 
 import pandas as pd
 import requests
-import os
 
 from tqdm import tqdm
 import ratelim
@@ -11,8 +13,7 @@ from checkpoints import checkpoints
 checkpoints.enable()
 
 
-# TODO: refactor downloads to use a data package you define
-def download(categories, packagename, registry,
+def download(categories,  # packagename, registry,
              class_names_fp=None, train_boxed_fp=None, image_ids_fp=None):
     """Download images in categories from flickr"""
 
@@ -53,7 +54,7 @@ def download(categories, packagename, registry,
         progress_bar.close()
 
     # Initialize a new data package or update an existing one
-    p = t4.Package.browse(packagename, registry) if packagename in t4.list_packages(registry) else t4.Package()
+    # p = t4.Package.browse(packagename, registry) if packagename in t4.list_packages(registry) else t4.Package()
 
     # Write the images to files, adding them to the package as we go along.
     if not os.path.isdir("temp/"):
@@ -65,13 +66,11 @@ def download(categories, packagename, registry,
 
         _write_image_file(r, image_name)
 
-        p.set(f"{image_label}/{image_name}", f"temp/{image_name}", meta=dict(meta))
+        # p.set(f"{image_label}/{image_name}", f"temp/{image_name}", meta=dict(meta))
 
     # Push the updated package
-    tophash = p.push(packagename, registry)
-
-    # TODO: delete the temporary folder
-    return tophash
+    # tophash = p.push(packagename, registry)
+    # return tophash
 
 
 @ratelim.patient(5, 5)
@@ -88,3 +87,8 @@ def _write_image_file(r, image_name):
     filename = f"temp/{image_name}"
     with open(filename, "wb") as f:
         f.write(r.content)
+
+
+if __name__ == '__main__':
+    categories = sys.argv[1:]
+    download(categories)
