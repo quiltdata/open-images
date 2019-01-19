@@ -13,6 +13,8 @@ from checkpoints import checkpoints
 checkpoints.enable()
 
 
+# TODO: make the download directory target configurable
+# TODO: add or remove package generation and metadata writing code?
 def download(categories,  # packagename, registry,
              class_names_fp=None, train_boxed_fp=None, image_ids_fp=None):
     """Download images in categories from flickr"""
