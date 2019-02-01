@@ -1,3 +1,0 @@
-jupyter
-t4
-keras
