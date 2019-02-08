@@ -3,3 +3,4 @@
 .gitignore
 .ipnyb_checkpoints/
 src/
+environment.yml
