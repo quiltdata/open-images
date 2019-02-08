@@ -1,6 +1,5 @@
 data/
 .ipynb_checkpoints/
-.idea/
 .DS_Store
 src/temp/
 __pycache__/
