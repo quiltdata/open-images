@@ -13,8 +13,6 @@ from checkpoints import checkpoints
 checkpoints.enable()
 
 
-# TODO: make the download directory target configurable
-# TODO: add or remove package generation and metadata writing code?
 def download(categories,  # packagename, registry,
              class_names_fp=None, train_boxed_fp=None, image_ids_fp=None):
     """Download images in categories from flickr"""
@@ -50,6 +48,7 @@ def download(categories,  # packagename, registry,
     print(f"Parsing {remaining_todo} images "
           f"({len(relevant_flickr_urls) - remaining_todo} have already been downloaded)")
 
+
     # Download the images
     with tqdm(total=remaining_todo) as progress_bar:
         relevant_image_requests = relevant_flickr_urls.safe_map(lambda url: _download_image(url, progress_bar))
@@ -67,12 +66,6 @@ def download(categories,  # packagename, registry,
         image_label = meta['LabelValue']
 
         _write_image_file(r, image_name)
-
-        # p.set(f"{image_label}/{image_name}", f"temp/{image_name}", meta=dict(meta))
-
-    # Push the updated package
-    # tophash = p.push(packagename, registry)
-    # return tophash
 
 
 @ratelim.patient(5, 5)

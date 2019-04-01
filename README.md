@@ -2,7 +2,7 @@
 
 This repository contains the code, in Python scripts and Jupyter notebooks, for building a convolutional neural network machine learning classifier based on a custom subset of the Google Open Images dataset.
 
-For an overview of this project be sure to also read the complimentary article: "Building custom datasets and models using Google Open Images" (link forthcoming).
+For an overview of this project be sure to also read the complimentary article: ["How to classify photos in 600 classes using nine million open images"](https://medium.freecodecamp.org/how-to-classify-photos-in-600-classes-using-nine-million-open-images-65847da1a319).
 
 To get everything you need to retrain the model locally:
 
